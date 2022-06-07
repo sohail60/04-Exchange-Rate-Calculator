@@ -1,12 +1,11 @@
 const curr1=document.querySelector('#curr-1');
 const curr2=document.querySelector('#curr-2');
-
 const amt1=document.querySelector('#curr-1-amt');
 const amt2=document.querySelector('#curr-2-amt');
-
 const btn=document.querySelector('#btn');
 const details=document.querySelector('#details');
 
+// Functions
 function calculate(){
     const curr1Value=curr1.value;
     const curr2Value=curr2.value;
@@ -16,14 +15,9 @@ function calculate(){
     .then(data => {
         console.log(data);
         const rate= data.conversion_rates[curr2Value];
-        // console.log(rate);
-        // console.log(typeof rate);
-        // console.log(curr1Value);
-        // console.log(typeof +curr1Value);
         details.innerText=`1 ${curr1Value} = ${rate} ${curr2Value}`;
         amt2.value=amt1.value*rate;
-        // console.log(+curr1Value*rate);
-    });
+        });
 }
 
 function swapCurrency(){
@@ -33,7 +27,7 @@ function swapCurrency(){
     calculate();
 }
 
-
+// Event Listeners
 curr1.addEventListener('change',calculate);
 amt1.addEventListener('input',calculate);
 curr2.addEventListener('change',calculate);
