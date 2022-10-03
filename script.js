@@ -13,7 +13,6 @@ function calculate(){
     fetch(`https://v6.exchangerate-api.com/v6/f1d81bf4287e4cc5afe1ed17/latest/${curr1Value}`)
     .then(res => res.json())
     .then(data => {
-        console.log(data);
         const rate= data.conversion_rates[curr2Value];
         details.innerText=`1 ${curr1Value} = ${rate} ${curr2Value}`;
         amt2.value=amt1.value*rate;
